@@ -3,9 +3,9 @@
 # */AIPND-revision/intropyproject-classify-pet-images/check_images.py
 #
 # TODO 0: Add your information below for Programmer & Date Created.                                                                             
-# PROGRAMMER: 
-# DATE CREATED:                                  
-# REVISED DATE: 
+# PROGRAMMER:Atsede Fentie 
+# DATE CREATED:11-23-2024                                  
+# REVISED DATE:11-26-2024
 # PURPOSE: Classifies pet images using a pretrained CNN model, compares these
 #          classifications to the true identity of the pets in the images, and
 #          summarizes how well the CNN performed on the image classification task. 
@@ -25,6 +25,10 @@
 
 # Imports python modules
 from time import time, sleep
+import time
+start_time = time.time()
+end_time = time.time()
+print(" Total Elapsed Runtime:", end_time - start_time)
 
 # Imports print functions that check the lab
 from print_functions_for_lab_checks import *
@@ -36,6 +40,35 @@ from classify_images import classify_images
 from adjust_results4_isadog import adjust_results4_isadog
 from calculates_results_stats import calculates_results_stats
 from print_results import print_results
+
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--dir', type=str, default='pet_images/', help='Directory of pet images')
+parser.add_argument('--arch', type=str, default='vgg', help='CNN architecture to use')
+parser.add_argument('--dogfile', type=str, default='dognames.txt', help='File containing dog names')
+args = parser.parse_args()
+
+def get_pet_labels(image_dir):
+    pet_labels = {}
+    # Logic to read filenames and create labels
+    return pet_labels
+
+def classify_images(images_dir, model):
+    classifier_labels = {}
+    # Logic to classify images using the model
+    return classifier_labels
+def classify_labels(pet_labels, dog_names):
+    # Logic to classify as "Dog" or "Not Dog"
+    return classified_labels
+
+def calculate_results(classified_labels):
+    # Logic to calculate and return results
+    return results
+
+def print_results(results):
+    # Logic to print results in a readable format
+    ```
+
 
 # Main program function defined below
 def main():
@@ -60,7 +93,7 @@ def main():
     #             get_pet_labels(in_arg.dir)
     # This function creates the results dictionary that contains the results, 
     # this dictionary is returned from the function call as the variable results
-    results = get_pet_labels(None)
+    results = get_pet_labels(in_arg.dir)
 
     # Function that checks Pet Images in the results Dictionary using results    
     check_creating_pet_image_labels(results)
@@ -74,7 +107,7 @@ def main():
     #             classify_images(in_arg.dir, results, in_arg.arch)
     # Creates Classifier Labels with classifier function, Compares Labels, 
     # and adds these results to the results dictionary - results
-    classify_images(None, results, None)
+    classify_images(in_arg.dir, results, in_arg.arch)
 
     # Function that checks Results Dictionary using results    
     check_classifying_images(results)    
@@ -88,7 +121,7 @@ def main():
     # Adjusts the results dictionary to determine if classifier correctly 
     # classified images as 'a dog' or 'not a dog'. This demonstrates if 
     # model can correctly classify dog images as dogs (regardless of breed)
-    adjust_results4_isadog(results, None)
+    adjust_results4_isadog(results, in_arg.dogfile)
 
     # Function that checks Results Dictionary for is-a-dog adjustment using results
     check_classifying_labels_as_dogs(results)
@@ -113,7 +146,7 @@ def main():
     #      print_results(results, results_stats, in_arg.arch, True, True)
     # Prints summary results, incorrect classifications of dogs (if requested)
     # and incorrectly classified breeds (if requested)
-    print_results(results, results_stats, None, True, True)
+    print_results(results, results_stats, in_arg.arch, True, True)
     
     # TODO 0: Measure total program runtime by collecting end time
     end_time = time()
