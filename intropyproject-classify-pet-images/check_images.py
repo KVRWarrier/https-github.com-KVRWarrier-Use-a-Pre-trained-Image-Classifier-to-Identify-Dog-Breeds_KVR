@@ -25,6 +25,10 @@
 
 # Imports python modules
 from time import time, sleep
+import time
+start_time = time.time()
+end_time = time.time()
+print(" Total Elapsed Runtime:", end_time - start_time)
 
 # Imports print functions that check the lab
 from print_functions_for_lab_checks import *
