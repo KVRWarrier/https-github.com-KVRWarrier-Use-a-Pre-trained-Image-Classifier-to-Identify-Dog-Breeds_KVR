@@ -42,13 +42,33 @@ from calculates_results_stats import calculates_results_stats
 from print_results import print_results
 
 import argparse
-def get_input_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--dir', type=str, default='pet_images/', help='Directory of pet images')
-    parser.add_argument('--arch', type=str, default='vgg', help='Model architecture')
-    parser.add_argument('--dogfile', type=str, default='dognames.txt', help='Dog names file')
-    return parser.parse_args()
-in_arg = get_input_args()
+parser = argparse.ArgumentParser()
+parser.add_argument('--dir', type=str, default='pet_images/', help='Directory of pet images')
+parser.add_argument('--arch', type=str, default='vgg', help='CNN architecture to use')
+parser.add_argument('--dogfile', type=str, default='dognames.txt', help='File containing dog names')
+args = parser.parse_args()
+
+def get_pet_labels(image_dir):
+    pet_labels = {}
+    # Logic to read filenames and create labels
+    return pet_labels
+
+def classify_images(images_dir, model):
+    classifier_labels = {}
+    # Logic to classify images using the model
+    return classifier_labels
+def classify_labels(pet_labels, dog_names):
+    # Logic to classify as "Dog" or "Not Dog"
+    return classified_labels
+
+def calculate_results(classified_labels):
+    # Logic to calculate and return results
+    return results
+
+def print_results(results):
+    # Logic to print results in a readable format
+    ```
+
 
 # Main program function defined below
 def main():
