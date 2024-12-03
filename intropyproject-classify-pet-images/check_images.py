@@ -25,10 +25,6 @@
 
 # Imports python modules
 from time import time, sleep
-import time
-start_time = time.time()
-end_time = time.time()
-print(" Total Elapsed Runtime:", end_time - start_time)
 
 # Imports print functions that check the lab
 from print_functions_for_lab_checks import *
@@ -41,39 +37,22 @@ from adjust_results4_isadog import adjust_results4_isadog
 from calculates_results_stats import calculates_results_stats
 from print_results import print_results
 
-import argparse
-parser = argparse.ArgumentParser()
-parser.add_argument('--dir', type=str, default='pet_images/', help='Directory of pet images')
-parser.add_argument('--arch', type=str, default='vgg', help='CNN architecture to use')
-parser.add_argument('--dogfile', type=str, default='dognames.txt', help='File containing dog names')
-args = parser.parse_args()
-
-def get_pet_labels(image_dir):
-    pet_labels = {}
-    # Logic to read filenames and create labels
-    return pet_labels
-
-def classify_images(images_dir, model):
-    classifier_labels = {}
-    # Logic to classify images using the model
-    return classifier_labels
-def classify_labels(pet_labels, dog_names):
-    # Logic to classify as "Dog" or "Not Dog"
-    return classified_labels
-
-def calculate_results(classified_labels):
-    # Logic to calculate and return results
-    return results
-
-def print_results(results):
-    # Logic to print results in a readable format
-    ```
-
-
 # Main program function defined below
 def main():
     # TODO 0: Measures total program runtime by collecting start time
     start_time = time()
+    
+    #Set sleep time
+    sleep(0)
+    
+    #Set end time
+    end_time = time()
+    
+    #Compute overall runtime in seconds
+    tot_time = end_time - start_time
+    
+    #Print overall runtime in format hh:mm:ss
+    print("\nTotal Elapsed Runtime:", str(int((tot_time/3600)))+":"+str(int(((tot_time % 3600) / 60)))+":"+str(int(((tot_time % 3600) % 60))))
     
     # TODO 1: Define get_input_args function within the file get_input_args.py
     # This function retrieves 3 Command Line Arugments from user as input from
