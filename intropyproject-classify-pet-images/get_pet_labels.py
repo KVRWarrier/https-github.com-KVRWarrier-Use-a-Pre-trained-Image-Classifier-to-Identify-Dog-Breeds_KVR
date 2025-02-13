@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/get_pet_labels.py
 #                                                                             
-# PROGRAMMER: 
-# DATE CREATED:                                  
+# PROGRAMMER: Rahul Unnikrishnan
+# DATE CREATED: 01/20/2025                                   
 # REVISED DATE: 
 # PURPOSE: Create the function get_pet_labels that creates the pet labels from 
 #          the image's filename. This function inputs: 
@@ -42,4 +42,64 @@ def get_pet_labels(image_dir):
     """
     # Replace None with the results_dic dictionary that you created with this
     # function
-    return None
+    
+    # Creates list of files in directory
+
+    in_files = listdir(image_dir)
+
+    # creating an empty dictionary
+
+    results_dic = dict()
+
+    # Processes through each file in the directory, extracting only the words
+    # of the file that contain the pet image label
+    for idx in range(0, len(in_files), 1):
+
+      # Skips file if starts with . (like .DS_Store of Mac OSX) because it 
+       # isn't an pet image file
+      if in_files[idx][0] != ".":
+
+        for lists in in_files:
+          pet_label = lists
+
+          # assigning the images name to the variable
+
+          pet_label = in_files[idx]
+
+          # creating a lower case string
+
+          low_pet_image = pet_label.lower()
+
+          # splitting the '_' from the lower case string
+
+          word_list_pet_image = low_pet_image.split('_')
+
+          # Creates temporary label variable to hold pet label name extracted 
+          pet_label = ""
+
+          # checking if the word names in the string is only alphabetic and
+          # appending if affirmative
+
+          for word in word_list_pet_image:
+            if word.isalpha():
+              pet_label += word + " "
+      
+        # stripping of the whitespaces
+
+          pet_label = pet_label.strip()
+
+
+        if in_files[idx] not in results_dic:
+          results_dic[in_files[idx]] = [pet_label]
+
+      else:
+        print("** Warning: Key=", in_files[idx], 
+               "already exists in results_dic with value =", 
+               results_dic[in_files[idx]])
+
+    # Replace None with the results_dic dictionary that you created with this
+    # function
+    return results_dic
+
+
+
