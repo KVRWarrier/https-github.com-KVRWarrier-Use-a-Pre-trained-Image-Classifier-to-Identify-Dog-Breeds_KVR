@@ -87,7 +87,7 @@ def adjust_results4_isadog(results_dic, dogfile):
 
       # Process line by striping newline from line
 
-        line.rstrip()
+        line = line.rstrip()
 
       # adds dogname(line) to dogsnames_dic if it doesn't already exist 
       # in the dogsnames_dic dictionary
