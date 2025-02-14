@@ -76,7 +76,7 @@ def print_results(results_dic, results_stats_dic, model,
     for key in results_stats_dic:
 
         if key.startswith('p'):
-                print("{:20}: {:3d}".format(key, results_stats_dic[key]))
+                print("{:20}: {:3f}".format(key, results_stats_dic[key]))
     
     # IF print_incorrect_dogs == True AND there were images incorrectly 
     # classified as dogs or vice versa - print out these cases
